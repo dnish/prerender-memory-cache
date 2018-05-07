@@ -6,6 +6,7 @@
   "author": "Todd Hooper",
   "license": "MIT",
   "dependencies": {
-    "cache-manager": "^2.6.0"
+    "cache-manager": "^2.6.0",
+    "cache-manager-redis":"0.6.0"
   }
 }
