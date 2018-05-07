@@ -1,10 +1,18 @@
 var cacheManager = require('cache-manager');
+var redisStore = require('cache-manager-redis');
+
+
 
 module.exports = {
 	init: function() {
 		this.cache = cacheManager.caching({
-			store: 'memory', max: process.env.CACHE_MAXSIZE || 100, ttl: process.env.CACHE_TTL || 60/*seconds*/
-		});
+	store: redisStore,
+	host: 'localhost', // default value
+	port: 6379, // default value
+	db: 0,
+	ttl: 60 * 60 * 24
+});
+
 	},
 
 	requestReceived: function(req, res, next) {
